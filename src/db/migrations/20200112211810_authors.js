@@ -12,7 +12,9 @@ exports.up = knex => knex.schema.createTable('authors', table => {
 
   table.integer('age')
 
-  table.string('email').unique()
+  table.string('email').unique().notNullable()
+
+  table.string('passhash').notNullable().defaultTo('5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8')
 
   table.integer('numBooksPublished').defaultTo(0)
 
